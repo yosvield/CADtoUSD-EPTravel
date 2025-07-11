@@ -52,6 +52,16 @@ async function updateTableWithUSDValues() {
         // Get the exchange rate
         const exchangeRate = await getExchangeRate();
 
+        // Find and update the balance div at the top of the page
+        const balanceDiv = document.querySelector('div[style*="padding:10px"]');
+        if (balanceDiv && balanceDiv.textContent.includes('Balance:') && !hasUSDValue(balanceDiv)) {
+            const balanceText = balanceDiv.textContent.trim();
+            const usdValue = convertCADtoUSD(balanceText, exchangeRate);
+            if (usdValue) {
+                balanceDiv.innerHTML = `${balanceText} <span style="color: green;">(${usdValue})</span>`;
+            }
+        }
+
         // Find the table rows
         const tableRows = document.querySelectorAll('table.table tbody tr');
 
