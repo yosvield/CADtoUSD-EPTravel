@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "CAD to USD Converter for EPTravelCards",
+  "version": "1.0",
+  "description": "Adds USD values to CAD amounts on EPTravelCards balance page",
+  "permissions": ["activeTab"],
+  "host_permissions": [
+    "https://eptravelcards.com/*",
+    "https://api.exchangerate-api.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://eptravelcards.com/Account/Balance"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "CAD to USD Converter"
+  }
+}

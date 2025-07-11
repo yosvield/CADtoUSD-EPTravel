@@ -1,0 +1,17 @@
+{
+  "name": "cad_to_usd_eptravel",
+  "version": "1.0.0",
+  "description": "Chrome extension to convert CAD to USD on EPTravelCards balance page",
+  "main": "dist/content.js",
+  "scripts": {
+    "build": "if not exist dist mkdir dist && copy src\\content.js dist\\ && copy src\\index.js dist\\ && copy manifest.json dist\\",
+    "watch": "echo \"Watch mode not available for JavaScript files\"",
+    "package": "npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.5.3",
+    "@types/chrome": "^0.0.260"
+  },
+  "private": true
+}
