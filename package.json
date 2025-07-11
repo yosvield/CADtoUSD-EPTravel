@@ -4,8 +4,9 @@
   "description": "Chrome extension to convert CAD to USD on EPTravelCards balance page",
   "main": "dist/content.js",
   "scripts": {
-    "build": "if not exist dist mkdir dist && copy src\\content.js dist\\ && copy src\\index.js dist\\ && copy manifest.json dist\\",
-    "watch": "echo \"Watch mode not available for JavaScript files\"",
+    "compile": "tsc",
+    "build": "npm run compile && if not exist dist mkdir dist && copy manifest.json dist\\",
+    "watch": "tsc --watch",
     "package": "npm run build"
   },
   "dependencies": {},

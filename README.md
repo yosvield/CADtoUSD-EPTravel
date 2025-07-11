@@ -41,8 +41,21 @@ A Chrome extension that adds USD values to CAD amounts on the EPTravelCards bala
 
 ## Development
 
-- After making changes to the JavaScript files, run `npm run build` to copy them to the dist folder
+- After making changes to the TypeScript files, run `npm run build` to compile them and create the dist folder
+- You can also use `npm run watch` to automatically compile TypeScript files when they change
 - Reload the extension in Chrome by clicking the refresh icon on the extension card in `chrome://extensions/`
+
+## Continuous Integration/Deployment
+
+This project uses GitHub Actions for continuous integration and deployment:
+
+- When changes are pushed to the master branch, a workflow automatically:
+  - Builds the extension
+  - Creates a ZIP archive of the built files
+  - Creates a GitHub release with the version from package.json
+  - Attaches the ZIP archive to the release
+
+The workflow configuration can be found in `.github/workflows/build-and-release.yml`.
 
 ## Notes
 
